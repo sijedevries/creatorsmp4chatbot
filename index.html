@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SMP4 Vault — CreatorSMP4 AI</title>
+<meta name="description" content="Een onafhankelijke AI-kennisbank voor CreatorSMP4.">
+<style>
+:root{--bg:#07070a;--panel:#111117;--panel2:#171720;--line:#282833;--text:#f7f7fb;--muted:#9b9ba8;--accent:#9b7cff;--accent2:#ff5ea8;--good:#63e6be}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 15% 0,#26174b 0,transparent 34%),radial-gradient(circle at 85% 5%,#41142f 0,transparent 28%),var(--bg);color:var(--text);font:15px Inter,system-ui,-apple-system,Segoe UI,sans-serif}
+a{color:inherit}.wrap{max-width:1120px;margin:auto;padding:22px}
+nav{height:64px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+.brand{font-weight:900;letter-spacing:-.6px;font-size:20px}.brand span{color:var(--accent)}
+.navlinks{display:flex;gap:20px;color:var(--muted);font-size:14px}.navlinks a{text-decoration:none}.navlinks a:hover{color:#fff}
+.hero{padding:78px 0 45px;text-align:center}.pill{display:inline-flex;gap:8px;align-items:center;border:1px solid #393047;background:#171321;border-radius:999px;padding:8px 13px;color:#cfc7e7}.dot{width:7px;height:7px;border-radius:50%;background:var(--good);box-shadow:0 0 14px var(--good)}
+h1{font-size:clamp(44px,8vw,84px);line-height:.95;letter-spacing:-4px;margin:20px auto 18px;max-width:850px}
+.grad{background:linear-gradient(90deg,#fff,#c7b7ff,#ff8bc4);-webkit-background-clip:text;color:transparent}
+.hero p{max-width:650px;margin:auto;color:var(--muted);font-size:17px;line-height:1.7}
+.chat{margin:35px auto 0;max-width:760px;background:rgba(17,17,23,.82);border:1px solid #343341;border-radius:22px;padding:12px;box-shadow:0 25px 80px #0008;backdrop-filter:blur(15px)}
+.chatbox{display:flex;gap:10px}.chat input{flex:1;background:#0c0c11;border:1px solid var(--line);border-radius:14px;padding:15px;color:#fff;outline:none}.chat button{border:0;border-radius:14px;padding:0 20px;color:#fff;font-weight:800;background:linear-gradient(135deg,var(--accent),var(--accent2));cursor:pointer}
+.answer{display:none;text-align:left;margin-top:10px;padding:16px;border-radius:14px;background:#0d0d13;border:1px solid var(--line);line-height:1.65}.answer small{color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:28px 0 55px}.card{background:rgba(17,17,23,.8);border:1px solid var(--line);border-radius:18px;padding:20px}.num{font-size:28px;font-weight:900}.label{color:var(--muted);margin-top:5px}
+section{margin:55px 0}.sectionhead{display:flex;justify-content:space-between;align-items:end;margin-bottom:18px}.sectionhead h2{margin:0;font-size:28px}.sectionhead p{margin:0;color:var(--muted)}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.feature{padding:23px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(145deg,#14141c,#0d0d12)}.icon{font-size:25px}.feature h3{margin:12px 0 7px}.feature p{color:var(--muted);line-height:1.6;margin:0}
+.timeline{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}.step{border:1px solid var(--line);background:#111117;border-radius:12px;padding:13px;text-align:center}.step b{display:block}.step span{color:var(--muted);font-size:12px}
+.notice{border:1px solid #3a3152;background:linear-gradient(90deg,#151020,#111117);border-radius:18px;padding:20px;line-height:1.6;color:#d5d0df}.notice strong{color:#fff}
+footer{border-top:1px solid var(--line);padding:28px 0 40px;color:var(--muted);display:flex;justify-content:space-between;gap:20px}
+footer a{color:#cfc8e7}.tag{display:inline-block;padding:5px 9px;border-radius:8px;background:#211c2c;color:#cfc1ef;font-size:12px}
+@media(max-width:800px){.grid{grid-template-columns:repeat(2,1fr)}.features{grid-template-columns:1fr}.timeline{grid-template-columns:repeat(2,1fr)}.navlinks{display:none}h1{letter-spacing:-2px}.hero{padding-top:55px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><div class="brand">SMP4<span>Vault</span></div><div class="navlinks"><a href="#chat">AI</a><a href="#info">Informatie</a><a href="#bron">Bron</a></div></nav>
+
+<header class="hero">
+<div class="pill"><i class="dot"></i> CreatorSMP4 kennisbank</div>
+<h1>Vraag alles over <span class="grad">CreatorSMP4.</span></h1>
+<p>Een onafhankelijke fan-made interface die CreatorSMP4-informatie overzichtelijk maakt. Zoek, vraag en ontdek — met CreatorSMP.nl als bron.</p>
+<div class="chat" id="chat">
+<div class="chatbox"><input id="q" placeholder="Bijv. Wanneer is CreatorSMP Hardcore 4?" autocomplete="off"><button onclick="ask()">Vraag</button></div>
+<div class="answer" id="a"></div>
+</div>
+</header>
+
+<div class="grid">
+<div class="card"><div class="num">S4</div><div class="label">Huidig seizoen</div></div>
+<div class="card"><div class="num">4–25</div><div class="label">Oktober 2026</div></div>
+<div class="card"><div class="num">6</div><div class="label">Hoofdonderdelen</div></div>
+<div class="card"><div class="num">24/7</div><div class="label">Vraagbaak-interface</div></div>
+</div>
+
+<section id="info">
+<div class="sectionhead"><div><h2>CreatorSMP4 in één oogopslag</h2><p>Gebaseerd op publiek zichtbare informatie van CreatorSMP.nl.</p></div><span class="tag">Seizoen 4</span></div>
+<div class="features">
+<div class="feature"><div class="icon">👥</div><h3>Deelnemers</h3><p>Een aparte deelnemerspagina is onderdeel van de officiële CreatorSMP4-site. Gebruik de bron voor de actuele deelnemerslijst.</p></div>
+<div class="feature"><div class="icon">☠️</div><h3>Deaths</h3><p>CreatorSMP.nl heeft een aparte deaths-sectie voor de actuele stand van spelers die zijn uitgeschakeld.</p></div>
+<div class="feature"><div class="icon">📊</div><h3>Statistieken</h3><p>De officiële site biedt statistieken naast de deelnemers- en deaths-overzichten.</p></div>
+<div class="feature"><div class="icon">🏆</div><h3>Tierlist</h3><p>Er is een officiële tierlist-sectie voor CreatorSMP4.</p></div>
+<div class="feature"><div class="icon">🎯</div><h3>Bingo</h3><p>CreatorSMP.nl bevat ook een bingo-onderdeel voor seizoen 4.</p></div>
+<div class="feature"><div class="icon">📣</div><h3>Aankondigingen</h3><p>De startpagina bevat aankondigingen en een tijdlijn rond het verloop van seizoen 4.</p></div>
+</div>
+</section>
+
+<section>
+<div class="sectionhead"><div><h2>Seizoen 4</h2><p>De officiële site vermeldt deze looptijd.</p></div></div>
+<div class="timeline">
+<div class="step"><b>4 okt</b><span>Start</span></div><div class="step"><b>8 okt</b><span>Poorten open</span></div><div class="step"><b>10 okt</b><span>Verliezers realm</span></div><div class="step"><b>18 okt</b><span>Verliezers finale</span></div><div class="step"><b>21 okt</b><span>Finale</span></div><div class="step"><b>25 okt</b><span>Einde periode</span></div>
+</div>
+</section>
+
+<section>
+<div class="notice"><strong>Ook seizoen 3?</strong><br>De officiële site vermeldt voor CreatorSMP Hardcore 3: winnaar <strong>ClownPierce</strong>, 80 creators, één hardcore Minecraft SMP-server en 22 dagen om te overleven.</div>
+</section>
+
+<section id="bron">
+<div class="sectionhead"><div><h2>Bron & transparantie</h2><p>Deze site is niet de officiële CreatorSMP-site.</p></div></div>
+<div class="notice">SMP4 Vault is een <strong>onafhankelijk fanproject</strong>. Voor actuele en volledige informatie verwijst deze site naar <a href="https://creatorsmp.nl/" target="_blank" rel="noopener">CreatorSMP.nl</a>. De officiële site heeft eigen voorwaarden rond geautomatiseerd verzamelen en kopiëren van gegevens. Daarom worden hier geen volledige databases of API-gegevens gespiegeld.</div>
+</section>
+
+<footer><div>© 2026 SMP4 Vault · Fan-made</div><div><a href="https://creatorsmp.nl/" target="_blank">Officiële CreatorSMP.nl</a></div></footer>
+</div>
+<script>
+const answers=[
+[/wanneer.*seizoen 4|seizoen 4.*wanneer|start.*seizoen 4/i,"CreatorSMP Hardcore 4 staat op CreatorSMP.nl vermeld van 4 oktober tot en met 25 oktober 2026."],
+[/wat.*onderdelen|wat.*informatie|wat.*staat.*site/i,"Voor seizoen 4 toont CreatorSMP.nl onder andere Deelnemers, Deaths, Statistieken, Tierlist en Bingo, plus aankondigingen op de startpagina."],
+[/wie.*winnaar|winnaar.*seizoen 3/i,"Volgens CreatorSMP.nl was ClownPierce de winnaar van CreatorSMP Hardcore seizoen 3."],
+[/hoeveel.*creators|aantal.*creators/i,"Voor seizoen 3 vermeldt CreatorSMP.nl 80 creators. Voor seizoen 4 raad ik aan de actuele deelnemerspagina op CreatorSMP.nl te gebruiken."],
+[/waar.*officieel|website|bron/i,"De officiële bron is CreatorSMP.nl. SMP4 Vault is een onafhankelijk fanproject en geen officiële CreatorSMP-site."]
+];
+function ask(){
+ const q=document.getElementById('q').value.trim(),a=document.getElementById('a'); if(!q)return;
+ const hit=answers.find(x=>x[0].test(q));
+ a.style.display='block';
+ a.innerHTML=hit?'<strong>🤖 SMP4 Vault</strong><br>'+hit[1]+'<br><small>Bron: CreatorSMP.nl</small>':'<strong>🤖 SMP4 Vault</strong><br>Ik kan alleen vragen over CreatorSMP4 en de informatie rond CreatorSMP beantwoorden. Voor actuele details kun je de officiële CreatorSMP.nl raadplegen.<br><small>Bron: CreatorSMP.nl</small>';
+}
+document.getElementById('q').addEventListener('keydown',e=>{if(e.key==='Enter')ask()});
+</script>
+</body></html>
