@@ -26,6 +26,9 @@ section{margin:55px 0}.sectionhead{display:flex;justify-content:space-between;al
 .notice{border:1px solid #3a3152;background:linear-gradient(90deg,#151020,#111117);border-radius:18px;padding:20px;line-height:1.6;color:#d5d0df}.notice strong{color:#fff}
 footer{border-top:1px solid var(--line);padding:28px 0 40px;color:var(--muted);display:flex;justify-content:space-between;gap:20px}
 footer a{color:#cfc8e7}.tag{display:inline-block;padding:5px 9px;border-radius:8px;background:#211c2c;color:#cfc1ef;font-size:12px}
+.feature{display:block;width:100%;text-align:left;font:inherit;color:inherit;cursor:pointer;transition:transform .15s,border-color .15s,box-shadow .15s}.feature:hover,.feature:focus-visible{transform:translateY(-3px);border-color:#5a4a8a;box-shadow:0 12px 40px #9b7cff22;outline:none}.feature .more{display:inline-block;margin-top:14px;color:var(--accent);font-weight:700;font-size:13px}
+.modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:20px;background:#000a;backdrop-filter:blur(6px);z-index:50}.modal.open{display:flex}.modalbox{position:relative;max-width:520px;width:100%;background:var(--panel);border:1px solid #343341;border-radius:22px;padding:26px;box-shadow:0 25px 80px #000a}.modalbox h3{margin:10px 0 8px;font-size:24px}.modalbox p{color:var(--muted);line-height:1.65;margin:0}.modalbox ul{color:#d5d0df;line-height:1.7;padding-left:20px}.close{position:absolute;top:14px;right:14px;width:34px;height:34px;border-radius:10px;border:1px solid var(--line);background:#0c0c11;color:#fff;font-size:18px;cursor:pointer}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.btn{border:0;border-radius:12px;padding:12px 16px;font:inherit;font-weight:800;cursor:pointer;text-decoration:none;color:#fff;background:linear-gradient(135deg,var(--accent),var(--accent2))}.btn.ghost{background:#0c0c11;border:1px solid var(--line)}
 @media(max-width:800px){.grid{grid-template-columns:repeat(2,1fr)}.features{grid-template-columns:1fr}.timeline{grid-template-columns:repeat(2,1fr)}.navlinks{display:none}h1{letter-spacing:-2px}.hero{padding-top:55px}}
 </style>
 </head>
@@ -53,12 +56,12 @@ footer a{color:#cfc8e7}.tag{display:inline-block;padding:5px 9px;border-radius:8
 <section id="info">
 <div class="sectionhead"><div><h2>CreatorSMP4 in één oogopslag</h2><p>Gebaseerd op publiek zichtbare informatie van CreatorSMP.nl.</p></div><span class="tag">Seizoen 4</span></div>
 <div class="features">
-<div class="feature"><div class="icon">👥</div><h3>Deelnemers</h3><p>Een aparte deelnemerspagina is onderdeel van de officiële CreatorSMP4-site. Gebruik de bron voor de actuele deelnemerslijst.</p></div>
-<div class="feature"><div class="icon">☠️</div><h3>Deaths</h3><p>CreatorSMP.nl heeft een aparte deaths-sectie voor de actuele stand van spelers die zijn uitgeschakeld.</p></div>
-<div class="feature"><div class="icon">📊</div><h3>Statistieken</h3><p>De officiële site biedt statistieken naast de deelnemers- en deaths-overzichten.</p></div>
-<div class="feature"><div class="icon">🏆</div><h3>Tierlist</h3><p>Er is een officiële tierlist-sectie voor CreatorSMP4.</p></div>
-<div class="feature"><div class="icon">🎯</div><h3>Bingo</h3><p>CreatorSMP.nl bevat ook een bingo-onderdeel voor seizoen 4.</p></div>
-<div class="feature"><div class="icon">📣</div><h3>Aankondigingen</h3><p>De startpagina bevat aankondigingen en een tijdlijn rond het verloop van seizoen 4.</p></div>
+<button type="button" class="feature" data-topic="deelnemers"><div class="icon">👥</div><h3>Deelnemers</h3><p>Een aparte deelnemerspagina is onderdeel van de officiële CreatorSMP4-site. Gebruik de bron voor de actuele deelnemerslijst.</p><span class="more">Meer info →</span></button>
+<button type="button" class="feature" data-topic="deaths"><div class="icon">☠️</div><h3>Deaths</h3><p>CreatorSMP.nl heeft een aparte deaths-sectie voor de actuele stand van spelers die zijn uitgeschakeld.</p><span class="more">Meer info →</span></button>
+<button type="button" class="feature" data-topic="statistieken"><div class="icon">📊</div><h3>Statistieken</h3><p>De officiële site biedt statistieken naast de deelnemers- en deaths-overzichten.</p><span class="more">Meer info →</span></button>
+<button type="button" class="feature" data-topic="tierlist"><div class="icon">🏆</div><h3>Tierlist</h3><p>Er is een officiële tierlist-sectie voor CreatorSMP4.</p><span class="more">Meer info →</span></button>
+<button type="button" class="feature" data-topic="bingo"><div class="icon">🎯</div><h3>Bingo</h3><p>CreatorSMP.nl bevat ook een bingo-onderdeel voor seizoen 4.</p><span class="more">Meer info →</span></button>
+<button type="button" class="feature" data-topic="aankondigingen"><div class="icon">📣</div><h3>Aankondigingen</h3><p>De startpagina bevat aankondigingen en een tijdlijn rond het verloop van seizoen 4.</p><span class="more">Meer info →</span></button>
 </div>
 </section>
 
@@ -78,6 +81,12 @@ footer a{color:#cfc8e7}.tag{display:inline-block;padding:5px 9px;border-radius:8
 <div class="notice">SMP4 Vault is een <strong>onafhankelijk fanproject</strong>. Voor actuele en volledige informatie verwijst deze site naar <a href="https://creatorsmp.nl/" target="_blank" rel="noopener">CreatorSMP.nl</a>. De officiële site heeft eigen voorwaarden rond geautomatiseerd verzamelen en kopiëren van gegevens. Daarom worden hier geen volledige databases of API-gegevens gespiegeld.</div>
 </section>
 
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mtitle">
+<div class="modalbox"><button type="button" class="close" aria-label="Sluiten" onclick="closeTopic()">×</button>
+<div class="icon" id="micon"></div><h3 id="mtitle"></h3><p id="mtext"></p><ul id="mlist"></ul>
+<div class="actions"><button type="button" class="btn" id="mask">🤖 Vraag de AI</button><a class="btn ghost" href="https://creatorsmp.nl/" target="_blank" rel="noopener">Bekijk op CreatorSMP.nl ↗</a></div>
+</div></div>
+
 <footer><div>© 2026 SMP4 Vault · Fan-made</div><div><a href="https://creatorsmp.nl/" target="_blank">Officiële CreatorSMP.nl</a></div></footer>
 </div>
 <script>
@@ -86,6 +95,12 @@ const answers=[
 [/wat.*onderdelen|wat.*informatie|wat.*staat.*site/i,"Voor seizoen 4 toont CreatorSMP.nl onder andere Deelnemers, Deaths, Statistieken, Tierlist en Bingo, plus aankondigingen op de startpagina."],
 [/wie.*winnaar|winnaar.*seizoen 3/i,"Volgens CreatorSMP.nl was ClownPierce de winnaar van CreatorSMP Hardcore seizoen 3."],
 [/hoeveel.*creators|aantal.*creators/i,"Voor seizoen 3 vermeldt CreatorSMP.nl 80 creators. Voor seizoen 4 raad ik aan de actuele deelnemerspagina op CreatorSMP.nl te gebruiken."],
+[/deelnemer|wie doen.*mee|spelers/i,"De actuele deelnemerslijst van CreatorSMP4 staat op de deelnemerspagina van CreatorSMP.nl. Ter vergelijking: seizoen 3 telde 80 creators."],
+[/death|dood|uitgeschakeld/i,"CreatorSMP.nl houdt in een aparte deaths-sectie bij welke spelers zijn uitgeschakeld. Omdat het hardcore is, betekent één death dat je uit de hoofdwereld ligt."],
+[/statistiek|stats|cijfers/i,"De officiële site biedt statistieken naast de deelnemers- en deaths-overzichten. Bekijk CreatorSMP.nl voor de actuele cijfers."],
+[/tierlist|tier|ranking/i,"CreatorSMP.nl heeft een officiële tierlist-sectie voor CreatorSMP4, waar creators in tiers worden gerangschikt."],
+[/bingo/i,"CreatorSMP.nl bevat een bingo-onderdeel voor seizoen 4. Speel mee en vink gebeurtenissen af terwijl het seizoen loopt."],
+[/aankondiging|nieuws|tijdlijn|planning|finale|poorten|verliezers/i,"Tijdlijn seizoen 4: 4 okt start, 8 okt poorten open, 10 okt verliezers realm, 18 okt verliezers finale, 21 okt finale en 25 okt einde periode. Aankondigingen staan op de startpagina van CreatorSMP.nl."],
 [/waar.*officieel|website|bron/i,"De officiële bron is CreatorSMP.nl. SMP4 Vault is een onafhankelijk fanproject en geen officiële CreatorSMP-site."]
 ];
 function ask(){
@@ -94,6 +109,26 @@ function ask(){
  a.style.display='block';
  a.innerHTML=hit?'<strong>🤖 SMP4 Vault</strong><br>'+hit[1]+'<br><small>Bron: CreatorSMP.nl</small>':'<strong>🤖 SMP4 Vault</strong><br>Ik kan alleen vragen over CreatorSMP4 en de informatie rond CreatorSMP beantwoorden. Voor actuele details kun je de officiële CreatorSMP.nl raadplegen.<br><small>Bron: CreatorSMP.nl</small>';
 }
+const topics={
+deelnemers:["👥","Deelnemers","Een aparte deelnemerspagina is onderdeel van de officiële CreatorSMP4-site.",["Actuele lijst van meedoende creators","Seizoen 3 had 80 creators","Bekijk de bron voor de meest recente stand"],"Wie zijn de deelnemers van CreatorSMP4?"],
+deaths:["☠️","Deaths","CreatorSMP.nl heeft een aparte deaths-sectie voor de actuele stand van spelers die zijn uitgeschakeld.",["Hardcore: één leven per speler","Overzicht van wie is uitgeschakeld","Sinds 10 okt: verliezers realm"],"Wie zijn er al dood in CreatorSMP4?"],
+statistieken:["📊","Statistieken","De officiële site biedt statistieken naast de deelnemers- en deaths-overzichten.",["Cijfers over het verloop van seizoen 4","Aanvulling op deelnemers en deaths"],"Welke statistieken zijn er voor CreatorSMP4?"],
+tierlist:["🏆","Tierlist","Er is een officiële tierlist-sectie voor CreatorSMP4.",["Creators gerangschikt in tiers","Officieel onderdeel van CreatorSMP.nl"],"Hoe werkt de tierlist van CreatorSMP4?"],
+bingo:["🎯","Bingo","CreatorSMP.nl bevat ook een bingo-onderdeel voor seizoen 4.",["Vink gebeurtenissen af tijdens het seizoen","Exclusief voor seizoen 4"],"Wat is de CreatorSMP4 bingo?"],
+aankondigingen:["📣","Aankondigingen","De startpagina bevat aankondigingen en een tijdlijn rond het verloop van seizoen 4.",["4 okt — Start","8 okt — Poorten open","10 okt — Verliezers realm","18 okt — Verliezers finale","21 okt — Finale","25 okt — Einde periode"],"Wat is de planning van CreatorSMP4?"]
+};
+const modal=document.getElementById('modal');let lastBtn=null;
+function openTopic(k,btn){
+ const t=topics[k];if(!t)return;lastBtn=btn;
+ document.getElementById('micon').textContent=t[0];document.getElementById('mtitle').textContent=t[1];document.getElementById('mtext').textContent=t[2];
+ const ul=document.getElementById('mlist');ul.innerHTML='';t[3].forEach(x=>{const li=document.createElement('li');li.textContent=x;ul.appendChild(li)});
+ document.getElementById('mask').onclick=()=>{closeTopic();const q=document.getElementById('q');q.value=t[4];ask();document.getElementById('chat').scrollIntoView({behavior:'smooth',block:'center'})};
+ modal.classList.add('open');modal.querySelector('.close').focus();
+}
+function closeTopic(){modal.classList.remove('open');if(lastBtn)lastBtn.focus()}
+document.querySelectorAll('.feature[data-topic]').forEach(b=>b.addEventListener('click',()=>openTopic(b.dataset.topic,b)));
+modal.addEventListener('click',e=>{if(e.target===modal)closeTopic()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open'))closeTopic()});
 document.getElementById('q').addEventListener('keydown',e=>{if(e.key==='Enter')ask()});
 </script>
 </body></html>
